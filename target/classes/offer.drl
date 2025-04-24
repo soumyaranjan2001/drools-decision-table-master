@@ -1,0 +1,33 @@
+package com.spring.drools.demo
+
+import com.spring.drools.demo.Order
+
+// Decision Table for Drools MegaOffer Project
+
+rule "HDFC Discount"
+    when
+        orderObject: Order(cardType == "HDFC", price > 10000)
+    then
+        orderObject.setDiscount(10);
+end
+
+rule "ICICI Discount"
+    when
+        orderObject: Order(cardType == "ICICI", price > 15000)
+    then
+        orderObject.setDiscount(15);
+end
+
+rule "DBS Discount"
+    when
+        orderObject: Order(cardType == "DBS", price > 15000)
+    then
+        orderObject.setDiscount(12);
+end
+
+rule "SBI Discount"
+    when
+        orderObject: Order(cardType == "SBI", price > 20000)
+    then
+        orderObject.setDiscount(12);
+end
